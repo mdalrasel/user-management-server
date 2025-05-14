@@ -5,6 +5,7 @@ const port = process.env.PORT || 5000
 
 
 app.use(cors())
+app.use(express.json())
 
 
 app.get('/', (req, res) => {
@@ -21,6 +22,11 @@ const users =[
 
 app.get('/users',(req,res) =>{
     res.send(users)
+})
+
+app.post('/users',(res,req)=>{
+    console.log('User method hit');
+    console.log(req.body)
 })
 
 app.listen(port, () => {
